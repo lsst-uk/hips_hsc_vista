@@ -1,5 +1,5 @@
 description: Run GenerateHipsTask
-instrument: lsst.obs.subaru.HyperSuprimeCam
+instrument: lsst.obs.vista.VIRCAM
 tasks:
   generateHips:
     class: lsst.pipe.tasks.hips.GenerateHipsTask
