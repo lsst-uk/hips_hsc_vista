@@ -37,18 +37,20 @@ fi
 repo=$1
 
 COLLECTION=demo_data
-HIPS_COLLECTION=demo_data_hips
-HIPS_QGRAPH_FILE=../demo_data/demo_hips.qgraph
+HIPS_COLLECTION=../demo_data/hips
+HIPS_QGRAPH_FILE=../demo_data/hips/demo_hips.qgraph
 
 
 echo 'generating quantum graph'
 
 build-high-resolution-hips-qg segment -b "$repo" -p "../demo_data/pipeline_tasks/highres_hips.yaml" -i "$COLLECTION"
 
+echo 'generating quantum graph'
+
 build-high-resolution-hips-qg build \
     -b "$repo" -p "../demo_data/pipeline_tasks/highres_hips.yaml" \
-    -i "$COLLECTION"\
-    --pixels 17 -q "$HIPS_QGRAPH_FILE"
+    -i "$COLLECTION" -q "$HIPS_QGRAPH_FILE" \
+    -P 17 --output "$HIPS_COLLECTION" \
 
 echo 'wrapping coadds '
 
