@@ -3,4 +3,4 @@ This repository contains scripts for HiPS image generation for the HSC-VISTA coa
 
 To generate HiPS images from the coadds, we need: a butler repository with the coadds, obs_vista, a version of lsst_stack that has the required tasks available, and .yaml files with the pipeline tasks definitions.
 
-In this repo, ```/bin``` contains the scripts, ```/pipeline_tasks``` contains the pipeline tasks definitions ```notes.txt``` contains detailed instruction on how to run things and ```test.html```is a simple test so see whether the generated HiPS can be visualized.
+In this repo, ```/bin``` contains the scripts, ```/pipeline_tasks``` contains the pipeline tasks definitions ```notes.md``` contains instructions and notes on how to run things and ```test.html```is a simple test so see whether the generated HiPS can be visualized.
