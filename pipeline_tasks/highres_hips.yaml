@@ -1,0 +1,5 @@
+description: Run HighResolutionHipsTask
+instrument: lsst.obs.vista.VIRCAM
+tasks:
+  highResolutionHips9:
+    class: lsst.pipe.tasks.hips.HighResolutionHipsTask
