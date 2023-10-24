@@ -51,18 +51,22 @@ echo "$HIPS_QGRAPH_FILE"
 
 echo 'Generating quantum graph: build'
 
-build-high-resolution-hips-qg build \
-    -b "$repo" -p "../pipeline_tasks/highres_hips.yaml" \
-    -i "$COLLECTION" -q "$HIPS_QGRAPH_FILE" \
-    -P 17
+#build-high-resolution-hips-qg build \
+#    -b "$repo" -p "../pipeline_tasks/highres_hips.yaml" \
+#    -i "$COLLECTION" -q "$HIPS_QGRAPH_FILE" \
+#    -P 17
     
-# echo 'wrapping coadds '
+echo 'wrapping coadds '
+start_time=$(date +%s)
 
-# pipetask --long-log --log-level="$loglevel" run \
-#     -j "$jobs" -b "$repo"/butler.yaml \
-#     --output "$HIPS_COLLECTION" \
-#     --register-dataset-types $mock \
-#     -g "$HIPS_QGRAPH_FILE"
+pipetask --long-log --log-level="$loglevel" run \
+    -j "$jobs" -b "$repo" \
+    --output-run "$HIPS_COLLECTION" \
+    --register-dataset-types \
+    -g "$HIPS_QGRAPH_FILE"
+
+end_time=$(date +%s)
+echo "Time it took to wrap coadds: $elapsed_time seconds"
 
 # echo 'generating hips'
 
