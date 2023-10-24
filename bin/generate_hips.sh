@@ -41,7 +41,7 @@ echo "Working on repo  :  $repo"
 echo "Input collection : $COLLECTION"
 echo "Hips collection  : $HIPS_COLLECTION"
 
-HIPS_QGRAPH_FILE="$HIPS_COLLECTION"/hips.qgraph
+HIPS_QGRAPH_FILE="$repo"/"$HIPS_COLLECTION"/hips.qgraph
 echo "$HIPS_QGRAPH_FILE"
 
 
