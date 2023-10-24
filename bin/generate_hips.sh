@@ -35,37 +35,41 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 repo=$1
+COLLECTION=$2
+HIPS_COLLECTION=$3
+echo "Working on repo  :  $repo"
+echo "Input collection : $COLLECTION"
+echo "Hips collection  : $HIPS_COLLECTION"
 
-COLLECTION=demo_data
-HIPS_COLLECTION=../demo_data/hips
-HIPS_QGRAPH_FILE=../demo_data/hips/demo_hips.qgraph
+HIPS_QGRAPH_FILE="$HIPS_COLLECTION"/hips.qgraph
+echo "$HIPS_QGRAPH_FILE"
 
 
 echo 'generating quantum graph'
 
 build-high-resolution-hips-qg segment -b "$repo" -p "../pipeline_tasks/highres_hips.yaml" -i "$COLLECTION"
 
-echo 'generating quantum graph'
+# echo 'generating quantum graph'
 
-build-high-resolution-hips-qg build \
-    -b "$repo" -p "../pipeline_tasks/highres_hips.yaml" \
-    -i "$COLLECTION" -q "$HIPS_QGRAPH_FILE" \
-    -P 17 --output "$HIPS_COLLECTION" \
+# build-high-resolution-hips-qg build \
+#     -b "$repo" -p "../pipeline_tasks/highres_hips.yaml" \
+#     -i "$COLLECTION" -q "$HIPS_QGRAPH_FILE" \
+#     -P 17 --output "$HIPS_COLLECTION" \
 
-echo 'wrapping coadds '
+# echo 'wrapping coadds '
 
-pipetask --long-log --log-level="$loglevel" run \
-    -j "$jobs" -b "$repo"/butler.yaml \
-    --output "$HIPS_COLLECTION" \
-    --register-dataset-types $mock \
-    -g "$HIPS_QGRAPH_FILE"
+# pipetask --long-log --log-level="$loglevel" run \
+#     -j "$jobs" -b "$repo"/butler.yaml \
+#     --output "$HIPS_COLLECTION" \
+#     --register-dataset-types $mock \
+#     -g "$HIPS_QGRAPH_FILE"
 
-echo 'generating hips'
+# echo 'generating hips'
 
-pipetask --long-log --log-level="$loglevel" run \
-    -j "$jobs" -b "$repo"/butler.yaml \
-    -i "$HIPS_COLLECTION" \
-    --output "$HIPS_COLLECTION" \
-    -p "../pipeline_tasks/gen_hips.yaml" \
-    -c "generateHips:hips_base_uri=$repo/hips" \
-    --register-dataset-types $mock
+# pipetask --long-log --log-level="$loglevel" run \
+#     -j "$jobs" -b "$repo"/butler.yaml \
+#     -i "$HIPS_COLLECTION" \
+#     --output "$HIPS_COLLECTION" \
+#     -p "../pipeline_tasks/gen_hips.yaml" \
+#     -c "generateHips:hips_base_uri=$repo/hips" \
+#     --register-dataset-types $mock
