@@ -62,3 +62,9 @@ pipetask --long-log --log-level="$loglevel" run \
 This final step, however, gives an exception: 'No way to apply find_first to .. with required engine 'sql': find_first does not commute with anything'.
 This can be bypassed by adding: find_first=False in find_dataset in _query.py in $EUPS_PATH/Linux64/daf_butler/$stack_version/python/lsst/daf/butler/regestry/queries/. 
 This is obviously not an ideal solution, but I have yet to figure out how this can be fixed.
+
+To check that the HiPS images were generated correctly, we can visualize them using ```test.html```. Simply start a python server:
+```
+python3 -m http.server
+```
+And then access the visualization in your browser at ```http://0.0.0.0:8000/test.html```
