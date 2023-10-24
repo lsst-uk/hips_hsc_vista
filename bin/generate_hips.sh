@@ -59,10 +59,11 @@ echo 'Generating quantum graph: build'
 echo 'wrapping coadds '
 start_time=$(date +%s)
 
-pipetask --long-log --extend-run --log-level="$loglevel" run \
+pipetask --long-log --log-level="$loglevel" run \
     -j "$jobs" -b "$repo" \
     --output-run "$HIPS_COLLECTION" \
     --register-dataset-types \
+    --extend-run \
     -g "$HIPS_QGRAPH_FILE"
 
 end_time=$(date +%s)
