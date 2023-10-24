@@ -45,17 +45,17 @@ HIPS_QGRAPH_FILE="$HIPS_COLLECTION"/hips.qgraph
 echo "$HIPS_QGRAPH_FILE"
 
 
-echo 'generating quantum graph'
+#echo 'Generating quantum graph: segment'
 
-build-high-resolution-hips-qg segment -b "$repo" -p "../pipeline_tasks/highres_hips.yaml" -i "$COLLECTION"
+#build-high-resolution-hips-qg segment -b "$repo" -p "../pipeline_tasks/highres_hips.yaml" -i "$COLLECTION"
 
-# echo 'generating quantum graph'
+echo 'Generating quantum graph: build'
 
-# build-high-resolution-hips-qg build \
-#     -b "$repo" -p "../pipeline_tasks/highres_hips.yaml" \
-#     -i "$COLLECTION" -q "$HIPS_QGRAPH_FILE" \
-#     -P 17 --output "$HIPS_COLLECTION" \
-
+build-high-resolution-hips-qg build \
+    -b "$repo" -p "../pipeline_tasks/highres_hips.yaml" \
+    -i "$COLLECTION" -q "$HIPS_QGRAPH_FILE" \
+    -P 17
+    
 # echo 'wrapping coadds '
 
 # pipetask --long-log --log-level="$loglevel" run \

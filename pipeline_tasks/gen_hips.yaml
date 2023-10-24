@@ -1,5 +1,5 @@
 description: Run GenerateHipsTask
-instrument: lsst.obs.vista.VIRCAM
+instrument: lsstuk.obs.vista.VIRCAM
 tasks:
   generateHips:
     class: lsst.pipe.tasks.hips.GenerateHipsTask
