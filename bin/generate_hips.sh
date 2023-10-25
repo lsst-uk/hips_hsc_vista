@@ -15,7 +15,7 @@ Options:
 USAGE
 }
 
-jobs=2
+jobs=$4
 mock=
 loglevel=INFO
 
@@ -37,10 +37,10 @@ fi
 repo=$1
 COLLECTION=$2
 HIPS_COLLECTION=$3
-echo "Working on repo  :  $repo"
+echo "Working on repo  : $repo"
 echo "Input collection : $COLLECTION"
 echo "Hips collection  : $HIPS_COLLECTION"
-
+echo "Number of jobs   : $jobs"
 HIPS_QGRAPH_FILE="$repo"/"$HIPS_COLLECTION"/hips.qgraph
 echo "$HIPS_QGRAPH_FILE"
 
