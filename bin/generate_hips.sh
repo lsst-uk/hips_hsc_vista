@@ -15,7 +15,7 @@ Options:
 USAGE
 }
 
-jobs=1
+jobs=2
 mock=
 loglevel=INFO
 
